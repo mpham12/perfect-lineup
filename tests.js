@@ -32,7 +32,7 @@ describe('Checkout', () => {
   })
 
   describe('getPositionCounts', () => {
-    it.skip('returns all positions currently filled and the count of players in each', () => {
+    it ('returns all positions currently filled and the count of players in each', () => {
       const lineup = [
         { id: 1, name: 'Chris Sale', position: 'P', teamId: 22, gameId: 123, salary: 9500 },
         { id: 2, name: 'Bryce Harper', position: 'OF', teamId: 12, gameId: 119, salary: 3800 },
@@ -70,25 +70,25 @@ describe('Checkout', () => {
   })
 
   describe('violatesPositionCount', () => {
-    it.skip('returns false when all positions exist and have the correct counts', () => {
+    it('returns false when all positions exist and have the correct counts', () => {
       const positionCounts = { 'P': 1, 'C': 1, '1B': 1, '2B': 1, '3B': 1, 'SS': 1, 'OF': 3 }
 
       expect(violatesPositionCount(positionCounts)).to.equal(false)
     })
 
-    it.skip('returns true when a position is missing', () => {
+    it ('returns true when a position is missing', () => {
       const positionCounts = { 'P': 1, 'C': 1, '1B': 1, '2B': 1, '3B': 1, 'SS': 1 }
 
       expect(violatesPositionCount(positionCounts)).to.equal(true)
     })
 
-    it.skip('returns true when a position has not enough players', () => {
+    it ('returns true when a position has not enough players', () => {
       const positionCounts = { 'P': 1, 'C': 1, '1B': 1, '2B': 1, '3B': 1, 'SS': 1, 'OF': 2 }
 
       expect(violatesPositionCount(positionCounts)).to.equal(true)
     })
 
-    it.skip('returns true when a position has too many players', () => {
+    it ('returns true when a position has too many players', () => {
       const positionCounts = { 'P': 2, 'C': 1, '1B': 1, '2B': 1, '3B': 1, 'SS': 1, 'OF': 3 }
 
       expect(violatesPositionCount(positionCounts)).to.equal(true)
@@ -190,7 +190,7 @@ describe('Checkout', () => {
       expect(validateLineup(lineup)).to.equal(false)
     })
 
-    it.skip('returns false when the lineup includes too many players from a single position', () => {
+    it ('returns false when the lineup includes too many players from a single position', () => {
       const lineup = [
         { id: 1, name: 'Chris Sale', position: 'P', teamId: 12, gameId: 123, salary: 9500 },
         { id: 2, name: 'Yadier Molina', position: 'C', teamId: 22, gameId: 115, salary: 2500 },
@@ -207,7 +207,7 @@ describe('Checkout', () => {
       expect(validateLineup(lineup)).to.equal(false)
     })
 
-    it.skip('returns false when the lineup includes too few players from a single position', () => {
+    it ('returns false when the lineup includes too few players from a single position', () => {
       const lineup = [
         { id: 1, name: 'Chris Sale', position: 'P', teamId: 12, gameId: 123, salary: 9500 },
         { id: 2, name: 'Yadier Molina', position: 'C', teamId: 22, gameId: 115, salary: 2500 },
@@ -222,7 +222,7 @@ describe('Checkout', () => {
       expect(validateLineup(lineup)).to.equal(false)
     })
 
-    it.skip('returns false when the lineup does not include a player from a position', () => {
+    it ('returns false when the lineup does not include a player from a position', () => {
       const lineup = [
         { id: 1, name: 'Chris Sale', position: 'P', teamId: 12, gameId: 123, salary: 9500 },
         { id: 3, name: 'Luke Voit', position: '1B', teamId: 20, gameId: 115, salary: 2800 },

@@ -1,9 +1,17 @@
 export function calculateTotalSalary(lineup) {
-  return 0
+  return lineup.reduce((start, addUp)=>{
+    return start + addUp.salary} , 0
+)
 }
 
 export function getPositionCounts(lineup) {
-  return {}
+  const countPositions = lineup.reduce((list,place)=>{
+    const {position} = place
+    const priorLineup=[position]||[]
+    const a = priorLineup.concat({position})
+    console.log (a)
+    return {a}
+  },{})
 }
 
 export function getGameCounts(lineup) {
@@ -41,7 +49,7 @@ export function violatesTeamCount(teams) {
 export function validateLineup(lineup) {
   const gameCounts = getGameCounts(lineup)
   const teamCounts = getTeamCounts(lineup)
-  // const positionCounts = getPositionCounts(lineup)
+  const positionCounts = getPositionCounts(lineup)
 
   return !violatesGameCount(gameCounts) && !violatesSalary(lineup) &&
     !violatesTeamCount(teamCounts) // && !violatesPositionCount(positionCounts)
